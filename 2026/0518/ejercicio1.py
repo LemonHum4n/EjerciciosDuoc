@@ -22,7 +22,7 @@ while True:
 
     while True:
         try:
-            opc = int(input("Ingrese una opción (1-3): --> "))
+            opc = int(input("--> "))
             if opc < 1 or opc > 3:
                 print("Ingrese una opcion valida. Entre 1 al 3.")
                 continue
@@ -51,10 +51,10 @@ while True:
         while True:
             try:
                 cantidadVentas=int(input("--> "))
-                if cantidadVentas>=0:
+                if cantidadVentas>0:
                     break
                 else:
-                    print("Ingrese un valor positivo.")
+                    print("Ingrese un valor positivo o distinto de cero.")
             except:
                 print("Ingrese un valor valido")
         for i in range(cantidadVentas):
@@ -62,7 +62,7 @@ while True:
             while True:
                 try:
                     monto=int(input("--> "))
-                    if monto>=0:
+                    if monto>0:
                         break
                     else:
                         print("El monto no puede ser negativo.")
