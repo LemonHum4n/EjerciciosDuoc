@@ -40,6 +40,51 @@ Por ejemplo:
 "¡El hotel cuenta con 2 Suites Ejecutivas y 7 Habitaciones Estándar! ¡Check-in disponible!"
 '''
 
+print("¿Cuantas habitaciones desea registrar?")
+while True:
+    try:
+        cantidad = int(input("--> "))
+        if cantidad > 0:
+            break
+        print("¡Cantidad inválida! Ingresa un entero positivo para continuar.")
+    except:
+        print("¡Cantidad inválida! Ingresa un entero positivo para continuar.")
+
+suites_ejecutivas = 0
+estandar = 0
+
+for i in range(cantidad):
+    print(f"Ingrese numero de habitacion #{i+1}")
+
+    while True:
+        numero = input("--> ")
+        if len(numero) < 6 or " " in numero: #El in verifica si dentro de la cadena "Numero" contiene un espacio en blanco
+            #Si contiene espacio el resultado es True, si no False
+            print("Número inválido. Debe tener al menos 6 caracteres y no contener espacios.")
+        else:
+            break
+
+    print("Ingrese tarifa nocturna: ")
+    while True:
+        try:
+            tarifa = int(input("--> "))
+            if tarifa > 0:
+                break
+            else:
+                print("¡Error tarifario! Ingresa un número entero positivo para la tarifa nocturna.")
+        except:
+            print("¡Error tarifario! Ingresa un número entero positivo para la tarifa nocturna.")
+
+    if tarifa > 90000:
+        suites_ejecutivas += 1
+    else:
+        estandar += 1
+
+print(f"¡El hotel cuenta con {suites_ejecutivas} Suites Ejecutivas y {estandar} Habitaciones Estándar! ¡Check-in disponible!")
+
+
+
+
 
 
 
