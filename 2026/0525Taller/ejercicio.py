@@ -18,6 +18,7 @@ totalVehiculos=0
 totalPagado=0
 
 while True:
+    aPagar=0
     print("========================")
     print("1. Registrar entrada vehiculo")
     print("2. Registrar salida de vehiculo")
