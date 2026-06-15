@@ -1,5 +1,25 @@
 inventario=[]
 codigo=1000
+def menu():
+    print("==================")
+    print("1. Agregar videojuego.")
+    print("2. Registrar venta.")
+    print("3. Mostrar inventario entero.")
+    print("4. Buscar por género.")
+    print("5. Salir.")
+    print("==================")
+    while True:
+        try:
+            opc=int(input("-->"))
+            if opc <=0:
+                print("No se permiten valores negativos o iguales a cero.")
+            elif 5 < opc < 1:
+                print("Valor invalido. Ingrese un valor entre el rango (1-5)")
+            else:
+                break
+        except:
+            print("Valor incorrecto. Ingrese un valor entero.")
+    return opc
 
 def validarStringDeTitulo():
     while True:
@@ -68,24 +88,7 @@ def validarEnteroPositivo():
 
 
 while True:
-    print("==================")
-    print("1. Agregar videojuego.")
-    print("2. Registrar venta.")
-    print("3. Mostrar inventario entero.")
-    print("4. Buscar por género.")
-    print("5. Salir.")
-    print("==================")
-    while True:
-        try:
-            opc=int(input("-->"))
-            if opc <=0:
-                print("No se permiten valores negativos o iguales a cero.")
-            elif 5 < opc < 1:
-                print("Valor invalido. Ingrese un valor entre el rango (1-5)")
-            else:
-                break
-        except:
-            print("Valor incorrecto. Ingrese un valor entero.")
+    opc = menu()
 
     if opc==1:
         print("==================")
@@ -140,16 +143,19 @@ while True:
         print("2. Registrar venta.")
         print("==================")
         print("Ingrese codigo del videojuego")
-        codigo=validarEnteroPositivo()
+        codigoVenta=validarEnteroPositivo()
         videojuegoEncontrado=False
         for i in range(len(inventario)):
-            if inventario[i]["codigo"]==codigo:
+            if inventario[i]["codigo"]==codigoVenta:
                 videojuegoEncontrado=True
                 indiceVenta=i
         
         if videojuegoEncontrado:
-            print(f"Stock disponible: {inventario[indiceVenta]["stock"]}")
+            print("==================")
+            print(f"Titulo:             {inventario[indiceVenta]["titulo"]}")
+            print(f"Stock disponible:   {inventario[indiceVenta]["stock"]}")
             if inventario[indiceVenta]["stock"]==0:
+                print("==================")
                 print("El stock actual del producto es cero. No se puede vender.")
             else:
                 print("==================")
@@ -162,7 +168,7 @@ while True:
                     else:
                         print("==================")
                         inventario[indiceVenta]["stock"]-=cantidad
-                        print(f"Total de la venta: {inventario[indiceVenta]["precio"]*cantidad}")
+                        print(f"Total de la venta: ${inventario[indiceVenta]["precio"]*cantidad}")
                         break
         else:
             print("No se encontro el videojuego")
@@ -173,13 +179,50 @@ while True:
     
     elif opc==3:
         print("==================")
-        print("3. Mostrar inventario por género.")
+        print("3. Mostrar inventario completo.")
         print("==================")
+        if not inventario:
+            print("No hay videojuegos en el inventario.")
+        else:
+            for i in inventario:
+                valorTotal = i["precio"] * i["stock"]
+                print("==================")
+                print(f"Codigo:     {i["codigo"]}")
+                print(f"Titulo:     {i["titulo"]}")
+                print(f"Genero:     {i["genero"]}")
+                print(f"Precio:     ${i["precio"]:.2f}")
+                print(f"Stock:      {i["stock"]}")
+                print(f"Valor Total: ${valorTotal:.2f}")
+                print("==================")
+                    
+            
+        
+        
     
     elif opc==4:
         print("==================")
         print("4. Buscar por género.")
         print("==================")
+        if not inventario:
+            print("No hay videojuegos en el inventario.")
+        else:
+            print("Ingrese genero")
+            genero=validarStringDeGenero()
+
+            for i in inventario:
+                if i["genero"].upper()==genero.upper():
+                    print("==================")
+                    print(f"Codigo:     {i["codigo"]}")
+                    print(f"Titulo:     {i["titulo"]}")
+                    print(f"Genero:     {i["genero"]}")
+                    print(f"Precio:     {i["precio"]}")
+                    print(f"Stock:      {i["stock"]}")
+                    print("==================")
+                    juegosEncontrados=True
+            
+            if not juegosEncontrados:
+                print("==================")
+                print(f"No se encontraron juegos del genero: {genero}")
 
     elif opc==5:
         print("==================")
@@ -188,6 +231,6 @@ while True:
         print("Hasta luego, Usuario.")
         break
 
-    
-        
+
+
 
