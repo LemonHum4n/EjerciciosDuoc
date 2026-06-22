@@ -85,6 +85,23 @@ def validarEnteroPositivo():
             print("Valor invalido. Ingrese un valor entero.")
     return numero
 
+def mostrarInventario():
+    print("==================")
+    print("3. Mostrar inventario completo.")
+    print("==================")
+    if not inventario:
+        print("No hay videojuegos en el inventario.")
+    else:
+        for i in inventario:
+            valorTotal = i["precio"] * i["stock"]
+            print("==================")
+            print(f"Codigo:     {i["codigo"]}")
+            print(f"Titulo:     {i["titulo"]}")
+            print(f"Genero:     {i["genero"]}")
+            print(f"Precio:     ${i["precio"]:.2f}")
+            print(f"Stock:      {i["stock"]}")
+            print(f"Valor Total: ${valorTotal:.2f}")
+            print("==================")
 
 
 while True:
@@ -172,32 +189,9 @@ while True:
                         break
         else:
             print("No se encontro el videojuego")
-        
-        
-
-        
     
     elif opc==3:
-        print("==================")
-        print("3. Mostrar inventario completo.")
-        print("==================")
-        if not inventario:
-            print("No hay videojuegos en el inventario.")
-        else:
-            for i in inventario:
-                valorTotal = i["precio"] * i["stock"]
-                print("==================")
-                print(f"Codigo:     {i["codigo"]}")
-                print(f"Titulo:     {i["titulo"]}")
-                print(f"Genero:     {i["genero"]}")
-                print(f"Precio:     ${i["precio"]:.2f}")
-                print(f"Stock:      {i["stock"]}")
-                print(f"Valor Total: ${valorTotal:.2f}")
-                print("==================")
-                    
-            
-        
-        
+        mostrarInventario()
     
     elif opc==4:
         print("==================")
