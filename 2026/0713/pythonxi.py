@@ -184,14 +184,6 @@ def mostrarPorRango(minimo:int,maximo:int,dicLibros:dict,dicInv:dict):
 
 
 
-    
-
-
-
-
-
-
-
 
 
 def menu():
