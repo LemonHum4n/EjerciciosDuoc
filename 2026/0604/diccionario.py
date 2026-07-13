@@ -20,7 +20,7 @@ print(diccionario["hermanos"][1]["nombre"])
 # Pedrito
 
 for i in diccionario["hermanos"]:
-    print(i["Nombre"])
+    print(i["nombre"])
 
 print(diccionario.get("nombree")) #No da excepciones si la clave no existe
 print(diccionario["nombree"]) #Da excepcion si la clave no existe
