@@ -1,3 +1,6 @@
+# aloa.loalokwdokwdok
+
+
 libros = { 
     'L001': ['Cien años de soledad', 'tapa dura', 'novela', 'A', True, 'Sudamericana'], 
     'L002': ['El principito', 'bolsillo', 'infantil', 'A', True, 'Salamandra'], 
