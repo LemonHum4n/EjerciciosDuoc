@@ -1,3 +1,6 @@
+# aloa.loalokwdokwdok
+
+
 libros = { 
     'L001': ['Cien años de soledad', 'tapa dura', 'novela', 'A', True, 'Sudamericana'], 
     'L002': ['El principito', 'bolsillo', 'infantil', 'A', True, 'Salamandra'], 
@@ -184,14 +187,6 @@ def mostrarPorRango(minimo:int,maximo:int,dicLibros:dict,dicInv:dict):
 
 
 
-    
-
-
-
-
-
-
-
 
 
 def menu():
@@ -255,5 +250,7 @@ def menu():
             print("Esta opcion no existe.")
             print("Intente nuevamente.")
 
+
+# JWDKLWDAJOKWEJOEWDAPOKWADPOKWDAPK
 
 menu()
